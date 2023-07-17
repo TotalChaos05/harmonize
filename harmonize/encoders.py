@@ -25,7 +25,7 @@ async def lame(stdin_pipe, target, options=[]):
 
 async def opus(source, target, options=[]):
     proc = await asyncio.create_subprocess_exec(
-        'opusenc',  '--quiet', *[str(o) for o in options], source, target)
+        'opusenc',  '--quiet', '--music', source, target)
 
     await proc.wait()
 
