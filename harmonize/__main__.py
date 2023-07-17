@@ -223,8 +223,8 @@ async def transcode(decoder, encoder, source, target):
     """
     LOGGER.info('Transcoding %s', source)
     target.parent.mkdir(parents=True, exist_ok=True)
-    async with decoder(source) as decoded:
-        await encoder(decoded, target)
+    async with source:
+        await encoder(source, target)
 
 
 _CODEC_ENCODERS = {
